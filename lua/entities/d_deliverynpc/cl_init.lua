@@ -66,7 +66,7 @@ net.Receive("OpenDerma", function()
 		MText:SetPos(135,-11)
 		MText:SetSize(1000,200)
 		MText:SetTextColor( Color( 0, 255, 0) )
-		MText:SetText(Dads.cfg["$"]..payperbox*totalpackges)
+		MText:SetText(Dads.cfg.menus["$"]..payperbox*totalpackges)
 
 		
 
@@ -110,7 +110,7 @@ function ENT:Draw()
 	local Ang = self:GetAngles()
 	Ang:RotateAroundAxis(Ang:Forward(), 90)
 	Ang:RotateAroundAxis(Ang:Right(), 270)
-	local TextAbove = Dads.cfg["Delivery Man"]
+	local TextAbove = Dads.cfg.menus["Delivery Man"]
 	
 	surface.SetFont("DermaLarge")
 	local TextWidth = surface.GetTextSize(TextAbove)
