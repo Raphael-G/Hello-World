@@ -3,9 +3,9 @@ Dads.cfg = {}
 
 -- Translates start in the line , if configs dosen't metter jusd to CTRL + F and search for translate
 
----//Configs
+-- //Configs
 
-    compylogos = {} // the order dosen't metter
+    compylogos = {} -- the order dosen't metter
         compylogos[1] = "https://i.imgur.com/p6ERxu0.png"
         compylogos[2] = "https://i.imgur.com/S8p43LU.png"
         compylogos[3] = "https://i.imgur.com/XGc4ID4.png"

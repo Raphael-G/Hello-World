@@ -3,7 +3,7 @@ AddCSLuaFile("configs.lua")
 function ENT:Initialize()
 end
 
-//You don't need to touch anthing here, just go to autorun paste ;)
+--You don't need to touch anthing here, just go to autorun paste ;)
 local menucooldown = 0
 local comyimage = math.random(Dads.cfg.compylogos)
 local jcount = 0
