@@ -40,13 +40,13 @@ function TOOL:UpdateGhost(ent, ply)
 		return
 	end
 
+	local min = ent:OBBMins()
 	local ang = trace.HitNormal:Angle()
 		ang.pitch = ang.pitch + 90
 
-	local min = ent:OBBMins()
-		ent:SetPos(trace.HitPos - trace.HitNormal * min.z)
-		ent:SetAngles(ang)
-		ent:SetNoDraw(false)
+	ent:SetPos(trace.HitPos - trace.HitNormal * min.z)
+	ent:SetAngles(ang)
+	ent:SetNoDraw(false)
 end
 
 function TOOL:Think()
