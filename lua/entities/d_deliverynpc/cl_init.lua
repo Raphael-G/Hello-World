@@ -40,7 +40,7 @@ net.Receive("OpenDerma", function()
 	local DScrollPanel = vgui.Create( "DScrollPanel", Menu )
 	DScrollPanel:Dock( FILL )
 
-	timer.Create()
+	--timer.Create()
 
 	while jcount < jjcount do
 		jcount = jcount +1

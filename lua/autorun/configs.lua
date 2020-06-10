@@ -1,5 +1,4 @@
-Dads = Dads or {}
-Dads.cfg = {}
+
 
 -- Translates start in the line , if configs dosen't metter jusd to CTRL + F and search for translate
 
@@ -13,16 +12,7 @@ Dads.cfg = {}
     }
 
 
-Dads.cfg.compylogos = #compylogos
-Dads.cfg.locationnames = #LocationNames
-Dads.cfg.jobdescs = #jobdescs
-Dads.cfg.minboxes = 1
-Dads.cfg.maxboxes = 15
-Dads.cfg.minjobs = 3
-Dads.cfg.maxjobs = 7
-Dads.cfg.minpayperbox = 120
-Dads.cfg.maxpayperbox = 400
-Dads.cfg.menucooldown = 120 //IN SECONDS if you want to config this in minutes just add a *60 in the final of the number, for example 2*60
+
 
 
 
@@ -48,6 +38,21 @@ Dads.cfg.menucooldown = 120 //IN SECONDS if you want to config this in minutes j
         "Normal job, get in front of the place and kick the box to the door",
         "Delivery it in the next hours"
     }
+
+   Dads = Dads or {}
+Dads.cfg = {}
+
+Dads.cfg.compylogos = #compylogos
+Dads.cfg.locationnames = #LocationNames
+Dads.cfg.jobdescs = #jobdescs
+Dads.cfg.minboxes = 1
+Dads.cfg.maxboxes = 15
+Dads.cfg.minjobs = 3
+Dads.cfg.maxjobs = 7
+Dads.cfg.jobscount = 20
+Dads.cfg.minpayperbox = 120
+Dads.cfg.maxpayperbox = 400
+Dads.cfg.menucooldown = 120 //IN SECONDS if you want to config this in minutes just add a *60 in the final of the number, for example 2*60
 
 Dads.cfg["$"] = "$"
 Dads.cfg["Delivery Man"] = "Delivery Man"
