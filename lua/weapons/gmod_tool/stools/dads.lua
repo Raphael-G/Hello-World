@@ -29,7 +29,53 @@ function TOOL:Reload(tr)
 	return true
 end
 
+function TOOL:UpdateGhost(ent, ply)
+	if ! IsValid(ent) then return end
+
+	local trace = ply:GetEyeTrace()
+
+	if ! trace.Hit || IsValid(trace.Entity) then
+		ent:SetNoDraw( true )
+
+		return
+	end
+
+	local ang = trace.HitNormal:Angle()
+		ang.pitch = ang.pitch + 90
+
+	local min = ent:OBBMins()
+		ent:SetPos(trace.HitPos - trace.HitNormal * min.z)
+		ent:SetAngles(ang)
+		ent:SetNoDraw(false)
+end
+
+function TOOL:Think()
+	if !IsValid(self.GhostEntity) then
+		self:MakeGhostEntity("models/props_phx/construct/metal_plate1.mdl", Vector( 0, 0, 0 ), Angle( 0, 0, 0 ))
+	end
+
+	self:UpdateGhost(self.GhostEntity, self:GetOwner())
+end
+
 function TOOL.BuildCPanel(CPanel)
 	CPanel:SetName("#tool.dads.name")
 	CPanel:Help("#tool.dads.desc")
+
+	local options = {}
+
+	for k,v in pairs(LocationNames) do
+		options[v] = { v }
+	end
+
+	local panel = CPanel:AddControl("ComboBox", {
+        Label = "Meu combo",
+        MenuButton = 0,
+        Options = options
+    })
+
+	panel.OnSelect = function(self, index, text, data)
+        for k,v in pairs(data) do
+            print(k, v);
+        end
+    end
 end
