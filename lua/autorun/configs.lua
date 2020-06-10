@@ -11,9 +11,10 @@ Dads.cfg = {}
         compylogos[3] = "https://i.imgur.com/XGc4ID4.png"
         compylogos[4] = "https://i.imgur.com/QSIDSYm.png"
 
-Dads.cfg.jobscount = 10
-Dads.cfg.compylogos = 4 -- if you add more make sure to increase +1 to this nunber 
 
+Dads.cfg.compylogos = #compylogos
+Dads.cfg.locationnames = #LocationNames
+Dads.cfg.jobdescs = #jobdescs
 Dads.cfg.minboxes = 1
 Dads.cfg.maxboxes = 15
 Dads.cfg.minjobs = 3
@@ -30,9 +31,8 @@ Dads.cfg.menucooldown = 120 //IN SECONDS if you want to config this in minutes j
         LocationNames[1] = "Brooklyn"
         LocationNames[2] = "Flatwood hiils condom"
         LocationNames[3] = "Insdustrial area"
-        LocationNames[4] = "Xalalau's neighood"
-
-    Dads.cfg.locationnames = 4 // add +1 if you add more
+        LocationNames[4] = "Xalalau's neighborhood"
+        LocationNames[5] = "Lagoon neighborhood"
 
         jobdescs = {}
         jobdescs[1] = "Jus go the local and delivery the boxes"                                                
@@ -45,8 +45,6 @@ Dads.cfg.menucooldown = 120 //IN SECONDS if you want to config this in minutes j
         jobdescs[8] = "I realy don't now what feijao minds, but you have to delivery it" 
         jobdescs[9] = "Normal job, get in front of the place and kick the box to the door" 
         jobdescs[10] = "Delivery it in the next hours" 
-
-    Dads.cfg.jobdescs = 10 // add +1 if you add more
 
 Dads.cfg["$"] = "$"
 Dads.cfg["Delivery Man"] = "Delivery Man"
