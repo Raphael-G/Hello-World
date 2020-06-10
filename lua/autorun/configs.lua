@@ -5,11 +5,12 @@ Dads.cfg = {}
 
 -- //Configs
 
-    compylogos = {} -- the order dosen't metter
-        compylogos[1] = "https://i.imgur.com/p6ERxu0.png"
-        compylogos[2] = "https://i.imgur.com/S8p43LU.png"
-        compylogos[3] = "https://i.imgur.com/XGc4ID4.png"
-        compylogos[4] = "https://i.imgur.com/QSIDSYm.png"
+    compylogos = { -- the order dosen't metter
+        "https://i.imgur.com/p6ERxu0.png",
+        "https://i.imgur.com/S8p43LU.png",
+        "https://i.imgur.com/XGc4ID4.png",
+        "https://i.imgur.com/QSIDSYm.png"
+    }
 
 
 Dads.cfg.compylogos = #compylogos
@@ -27,24 +28,26 @@ Dads.cfg.menucooldown = 120 //IN SECONDS if you want to config this in minutes j
 
 // translate \\
 
-    LocationNames = {}
-        LocationNames[1] = "Brooklyn"
-        LocationNames[2] = "Flatwood hiils condom"
-        LocationNames[3] = "Insdustrial area"
-        LocationNames[4] = "Xalalau's neighborhood"
-        LocationNames[5] = "Lagoon neighborhood"
+    LocationNames = {
+        "Brooklyn",
+        "Flatwood hiils condom",
+        "Insdustrial area",
+        "Xalalau's neighborhood",
+        "Lagoon neighborhood"
+    }
 
-        jobdescs = {}
-        jobdescs[1] = "Jus go the local and delivery the boxes"                                                
-        jobdescs[2] = "They need this for yesterday "                                                
-        jobdescs[3] = "May be a little heavy"                                                
-        jobdescs[4] = "Fragille packge, take care!" 
-        jobdescs[5] = "Some mechanic parts" 
-        jobdescs[6] = "Put carefuly on the ground, or it may explodes" 
-        jobdescs[7] = "Some braziliam food" 
-        jobdescs[8] = "I realy don't now what feijao minds, but you have to delivery it" 
-        jobdescs[9] = "Normal job, get in front of the place and kick the box to the door" 
-        jobdescs[10] = "Delivery it in the next hours" 
+    jobdescs = {
+        "Jus go the local and delivery the boxes",                                            
+        "They need this for yesterday ",
+        "May be a little heavy",
+        "Fragille packge, take care!",
+        "Some mechanic parts",
+        "Put carefuly on the ground, or it may explodes",
+        "Some braziliam food",
+        "I realy don't now what feijao minds, but you have to delivery it",
+        "Normal job, get in front of the place and kick the box to the door",
+        "Delivery it in the next hours"
+    }
 
 Dads.cfg["$"] = "$"
 Dads.cfg["Delivery Man"] = "Delivery Man"
