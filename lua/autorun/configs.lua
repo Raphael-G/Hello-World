@@ -1,6 +1,6 @@
 Dads = Dads or {}
 Dads.cfg = {}
-
+-- // Configs \\
 Dads.cfg.minboxes = 1
 Dads.cfg.maxboxes = 15
 Dads.cfg.minjobs = 3
@@ -8,9 +8,8 @@ Dads.cfg.maxjobs = 7
 Dads.cfg.jobscount = 20
 Dads.cfg.minpayperbox = 120
 Dads.cfg.maxpayperbox = 400
-Dads.cfg.menucooldown = 120 -- IN SECONDS if you want to config this in minutes just add a *60 in the final of the number, for example 2*60
+Dads.cfg.menucooldown = 120
 
--- // Configs \\
 compylogos = { -- the order dosen't metter
     "https://i.imgur.com/p6ERxu0.png",
     "https://i.imgur.com/S8p43LU.png",
