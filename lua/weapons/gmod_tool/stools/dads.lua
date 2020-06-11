@@ -27,6 +27,8 @@ function TOOL:LeftClick(tr)
 	rc = ents.Create("d_tete")
 	rc:SetPos(tr.HitPos)
 	rc:Spawn()
+	rc:SetMaterial("models/wireframe")
+	rc:SetColor(Color(255,0,0))
 
 	return true
 end
