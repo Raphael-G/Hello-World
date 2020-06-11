@@ -8,6 +8,8 @@ TOOL.Information = {
 	{ name = "reload" }
 }
 
+TOOL.ClientConVar["color"] = ""
+
 if CLIENT then
 	language.Add( "Tool.dads.name", "Dom's Advanced Delivery System" )
 	language.Add( "Tool.dads.desc", "Some configs ;)" )
@@ -23,18 +25,44 @@ function TOOL:DrawHUD(tr)
 end
 
 function TOOL:LeftClick(tr)
+	local selected = GetConVar("dads_color"):GetString()
 
-	rc = ents.Create("d_tete")
-	rc:SetPos(tr.HitPos)
-	rc:Spawn()
-	rc:SetMaterial("models/wireframe")
-	rc:SetColor(Color(255,0,0))
+	if selected == "" then
+		return false
+	end
+
+	if SERVER then
+		dt = ents.Create("d_tete")
+
+		dt:SetPos(tr.HitPos)
+
+		-- Color
+		do
+			local found = false
+	
+			for k,v in pairs(LocationNames) do
+				if LocationNames[k] == selected then
+					if teleportColors[k] then
+						dt:SetColor(teleportColors[k])
+						found = true
+					end
+
+					break
+				end
+			end
+	
+			if not found then
+				dt:SetColor(teleportColors[1])
+			end
+		end
+
+		dt:Spawn()
+	end
 
 	return true
 end
 
 function TOOL:RightClick(tr)
-
 	print(tr.Entity)
 
 	tr.Entity:Remove()
@@ -77,29 +105,25 @@ function TOOL.BuildCPanel(CPanel)
 	CPanel:Help("#tool.dads.desc")
 
 	local options = {}
+	local cvars = {}
 
 	for k,v in pairs(LocationNames) do
 		options[v] = { v }
+		cvars["dads_color"] = ""
 	end
 
 	local panel = CPanel:AddControl("ComboBox", {
         Label = "Locations",
         MenuButton = 0,
-        Options = options
+		Options = options,
+		CVars = table.GetKeys(cvars)
     })
 
 	panel.OnSelect = function(self, index, text, data)
-        for k,v in pairs(data) do
-			net.Start("dads_loc")
-				net.WriteString(v)
-			net.SendToServer()
+		for k,v in pairs(data) do
+			if v then
+				RunConsoleCommand("dads_color", v)
+			end
         end
-
-		if options == nil then
-			print("Please select a location")
-		else 
-			print(v)
-		end	
-
     end
 end
