@@ -17,11 +17,21 @@ if CLIENT then
 	language.Add( "Undone_dom", "Undone Stacked Prop(s)" )
 end
 
+function TOOL:DrawHUD(tr)
+    local tr = LocalPlayer():GetEyeTrace()
+    return true
+end
+
 function TOOL:LeftClick(tr)
+	rc = ents.Create("d_tete")
+	rc:SetPos(tr.HitPos)
+	rc:Spawn()
+	rc:GetOwner()
 	return true
 end
 
 function TOOL:RightClick(tr)
+	rc:Remove()
 	return true
 end
 
@@ -31,7 +41,6 @@ end
 
 function TOOL:UpdateGhost(ent, ply)
 	if ! IsValid(ent) then return end
-
 	local trace = ply:GetEyeTrace()
 
 	if ! trace.Hit || IsValid(trace.Entity) then
@@ -68,14 +77,23 @@ function TOOL.BuildCPanel(CPanel)
 	end
 
 	local panel = CPanel:AddControl("ComboBox", {
-        Label = "Meu combo",
+        Label = "Locations",
         MenuButton = 0,
         Options = options
     })
 
 	panel.OnSelect = function(self, index, text, data)
         for k,v in pairs(data) do
-            print(k, v);
+			net.Start("dads_loc")
+				net.WriteString(v)
+			net.SendToServer()
         end
+
+		if options == nil then
+			print("Please select a location")
+		else 
+			print(v)
+		end	
+
     end
 end
