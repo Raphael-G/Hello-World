@@ -1,8 +1,10 @@
 AddCSLuaFile("cl_init.lua")
 AddCSLuaFile("shared.lua")
 include("shared.lua")
-util.AddNetworkString("OpenDerma")
-util.AddNetworkString("Cooldown")
+
+util.AddNetworkString("dads.openderma")
+util.AddNetworkString("dads.values")
+
 function ENT:Initialize()
 	self:SetModel("models/odessa.mdl")
 	self:SetHullType(HULL_HUMAN)
@@ -15,7 +17,7 @@ end
 
 function ENT:Use( ent, ply )
 
-	net.Start("OpenDerma")
+	net.Start("dads.openderma")
 	net.Send(ply)
 
 end

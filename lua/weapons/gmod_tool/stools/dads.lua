@@ -28,7 +28,6 @@ function TOOL:LeftClick(tr)
 	rc:SetPos(tr.HitPos)
 	rc:Spawn()
 	rc:SetMaterial("models/wireframe")
-	rc:SetColor(Color(255,0,0))
 
 	return true
 end

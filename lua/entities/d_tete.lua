@@ -9,6 +9,9 @@ ENT.Category = "Dom's Advanced Delivery system"
 AddCSLuaFile()
 
 if SERVER then
+	local d = "d"
+	local o = "o"
+	local m = "m"
 	local s = "s"
 	
 	util.AddNetworkString("dads_loc")
@@ -22,22 +25,21 @@ if SERVER then
 		if phys:IsValid() then phys:Wake() end
 		phys:EnableMotion( false )
 		self:SetUseType(SIMPLE_USE)
-		self.HeldOres = 0
-		self.Refining = false
-		self.Ready = false
-
+		self.group = "A"
 		net.Receive("dads_loc", function(len,ply)
 			s = net.ReadString()
-			print(s)	
+			group = s
+			print(group)
 		end)
-
-		print(s)
-		if s == "Insdustrial area" then 
-			self:SetColor(Color(255,0,0))
-		elseif s == "Flatwood hiils condom" then
-			self:SetColor(Color(0,255,0))
-		end
+		net.Receive("dads.values", function(len,ply)
+			d = net.ReadString()
+			o = net.ReadString()
+			m = net.ReadString()
+			print("D "..d.."\nO "..o.."\nM "..m)
+			--print(group)
+		end)
 	end
+
 
 	function ENT:Use( act, ply )
 		print(s)
@@ -47,6 +49,9 @@ if SERVER then
 	end
 	
 	function ENT:Think()
+		if d == group then
+			self:SetColor(Color(math.random(255),math.random(255),math.random(255)))
+  		end
 	end
 
 end
