@@ -6,6 +6,7 @@ ENT.Author = "Dom"
 ENT.Spawnable = true
 ENT.AdminSpawnable = false
 ENT.Category = "Dom's Advanced Delivery system"
+AddCSLuaFile()
 
 if SERVER then
 	local d = "d"
