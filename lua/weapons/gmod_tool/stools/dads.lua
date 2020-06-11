@@ -23,15 +23,19 @@ function TOOL:DrawHUD(tr)
 end
 
 function TOOL:LeftClick(tr)
+
 	rc = ents.Create("d_tete")
 	rc:SetPos(tr.HitPos)
 	rc:Spawn()
-	rc:GetOwner()
+
 	return true
 end
 
 function TOOL:RightClick(tr)
-	rc:Remove()
+
+	print(tr.Entity)
+
+	tr.Entity:Remove()
 	return true
 end
 
