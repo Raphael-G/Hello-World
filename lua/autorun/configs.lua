@@ -19,6 +19,13 @@ compylogos = { -- the order dosen't metter
 
 -- Translates start in the line , if configs dosen't metter jusd to CTRL + F and search for translate
 
+-- LocationNames[line] for LocationNames[line]
+-- If the association is nil, LocationNames[1] will be used
+teleportColors = {
+    Color(255,0,0), -- Red
+    Color(0,255,0) -- Blue
+}
+
 -- // translate \\
 LocationNames = {
     "Brooklyn",

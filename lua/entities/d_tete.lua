@@ -6,7 +6,6 @@ ENT.Author = "Dom"
 ENT.Spawnable = true
 ENT.AdminSpawnable = false
 ENT.Category = "Dom's Advanced Delivery system"
-AddCSLuaFile()
 
 if SERVER then
 	local d = "d"
@@ -53,14 +52,26 @@ if SERVER then
 			self:SetColor(Color(math.random(255),math.random(255),math.random(255)))
   		end
 	end
+end
 
+function ENT:OnRemove()
+end
+
+function ENT:Think()
 end
 
 if CLIENT then
-
 	function ENT:Draw()
 		self:DrawModel()
-		
 	end
-	
+end
+
+if SERVER then
+	function ENT:Use( act, ply )
+		print(s)
+	end
+
+	net.Receive("dads_set_teleport", function(len, ply)
+		print("funcao vazia esperando por algo")
+	end)
 end

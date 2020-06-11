@@ -12,7 +12,7 @@ AddCSLuaFile()
 if SERVER then
 
 	function ENT:Initialize()
-		self:SetModel("models/props_phx/construct/metal_plate1.mdl")
+		self:SetModel("models/Combine_Helicopter/helicopter_bomb01.mdl")
 		self:PhysicsInit(SOLID_VPHYSICS)
 		self:SetMoveType(MOVETYPE_VPHYSICS)
 		self:SetSolid(SOLID_VPHYSICS)
@@ -53,7 +53,10 @@ function ENT:Draw()
 
 	local size = math.Clamp( 10, 4, 20 )
 	render.DrawSprite( pos, size, size, Color( lcolor.x, lcolor.y, lcolor.z, 255 ) )
-
+	
+	hook.Add( "PreDrawHalos", "AddPropHalos", function()
+   		 halo.Add( self, Color( 255, 0, 0 ), 5, 5, 5,true,true )
+	end )
 end
 
 	
