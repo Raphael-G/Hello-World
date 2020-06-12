@@ -6,7 +6,7 @@ util.AddNetworkString("dads.openderma")
 util.AddNetworkString("dads.values")
 
 function ENT:Initialize()
-	self:SetModel("models/odessa.mdl")
+	self:SetModel("models/gman_high.mdl")
 	self:SetHullType(HULL_HUMAN)
 	self:SetHullSizeNormal()
 	self:SetNPCState(NPC_STATE_IDLE)
