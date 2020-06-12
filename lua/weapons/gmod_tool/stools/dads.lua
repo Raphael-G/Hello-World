@@ -25,37 +25,21 @@ function TOOL:DrawHUD(tr)
 end
 
 function TOOL:LeftClick(tr)
+	if SERVER then return; end
+
 	local selected = GetConVar("dads_color"):GetString()
 
 	if selected == "" then
 		return false
 	end
 
-	if SERVER then
-		dt = ents.Create("d_tete")
-		dt:SetPos(tr.HitPos)
-
-		-- Color
-		do
-			local found = false
-	
-			for k,v in pairs(LocationNames) do
-				if LocationNames[k] == selected then
-					if teleportColors[k] then
-						dt:SetColor(teleportColors[k])
-						found = true
-					end
-
-					break
-				end
-			end
-	
-			if not found then
-				dt:SetColor(teleportColors[1])
-			end
-		end
-
-		dt:Spawn()
+	if not timer.Exists("left_antispam") then
+		timer.Create("timer_antispam", 0.01, 1, function()
+			net.Start("dads_set_teleport")
+				net.WriteString(selected)
+				net.WriteVector(tr.HitPos)
+			net.SendToServer()
+		end)
 	end
 
 	return true

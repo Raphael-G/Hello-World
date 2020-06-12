@@ -14,7 +14,7 @@ if SERVER then
 	local m = "m"
 	local s = "s"
 	
-	util.AddNetworkString("dads_loc")
+	util.AddNetworkString("dads_set_teleport")
 
 	function ENT:Initialize()
 		self:SetModel("models/props_phx/construct/metal_plate1.mdl")
@@ -73,6 +73,34 @@ if SERVER then
 	end
 
 	net.Receive("dads_set_teleport", function(len, ply)
-		print("funcao vazia esperando por algo")
+		local selected = net.ReadString()
+		local position = net.ReadVector()
+print(selected)
+print(position)
+		dt = ents.Create("d_tete")
+
+		dt:SetPos(position)
+
+		-- Color
+		do
+			local found = false
+	
+			for k,v in pairs(LocationNames) do
+				if LocationNames[k] == selected then
+					if teleportColors[k] then
+						dt:SetColor(teleportColors[k])
+						found = true
+					end
+
+					break
+				end
+			end
+	
+			if not found then
+				dt:SetColor(teleportColors[1])
+			end
+		end
+
+		dt:Spawn()
 	end)
 end

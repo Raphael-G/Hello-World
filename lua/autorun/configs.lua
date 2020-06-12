@@ -9,6 +9,7 @@ Dads.cfg.jobscount = 20
 Dads.cfg.minpayperbox = 120
 Dads.cfg.maxpayperbox = 400
 Dads.cfg.menucooldown = 120
+AddCSLuaFile()
 
 compylogos = { -- the order dosen't metter
     "https://i.imgur.com/p6ERxu0.png",
@@ -25,7 +26,7 @@ teleportColors = {
     Color(255,0,0), -- Red
     Color(0,255,0) -- Blue
 }
-cREATE
+
 -- // translate \\
 LocationNames = {
     "Brooklyn",
