@@ -25,7 +25,7 @@ function TOOL:DrawHUD(tr)
 end
 
 function TOOL:LeftClick(tr)
-	if SERVER then return; end
+	if SERVER then return true; end
 
 	local selected = GetConVar("dads_color"):GetString()
 
@@ -46,10 +46,15 @@ function TOOL:LeftClick(tr)
 end
 
 function TOOL:RightClick(tr)
-	print(tr.Entity)
+	if tr.Entity:GetClass() == "d_tete" then
+		if SERVER then
+			tr.Entity:Remove()
+		end
 
-	tr.Entity:Remove()
-	return true
+		return true
+	else
+		return false
+	end
 end
 
 function TOOL:Reload(tr)

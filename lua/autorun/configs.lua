@@ -23,8 +23,15 @@ compylogos = { -- the order dosen't metter
 -- LocationNames[line] for LocationNames[line]
 -- If the association is nil, LocationNames[1] will be used
 teleportColors = {
-    Color(255,0,0), -- Red
-    Color(0,255,0) -- Blue
+    Color(255, 0, 0), -- Red
+    Color(0, 255, 0), -- Blue
+    Color(0, 0, 255), -- Green
+    Color(235, 195, 52), -- Orange
+    Color(235, 52, 223), -- Pink
+    Color(165, 52, 235), -- Purple
+    Color(0, 0, 0), -- Black
+    Color(255, 255, 255), -- White
+    Color(0, 230, 222) -- Blue 2
 }
 
 -- // translate \\

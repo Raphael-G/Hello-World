@@ -61,12 +61,6 @@ end
 function ENT:Think()
 end
 
-if CLIENT then
-	function ENT:Draw()
-		self:DrawModel()
-	end
-end
-
 if SERVER then
 	function ENT:Use( act, ply )
 		print(s)
@@ -75,8 +69,7 @@ if SERVER then
 	net.Receive("dads_set_teleport", function(len, ply)
 		local selected = net.ReadString()
 		local position = net.ReadVector()
-print(selected)
-print(position)
+
 		dt = ents.Create("d_tete")
 
 		dt:SetPos(position)
