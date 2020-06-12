@@ -25,13 +25,13 @@ function TOOL:DrawHUD(tr)
 end
 
 function TOOL:LeftClick(tr)
-	if SERVER then return; end
-
 	local selected = GetConVar("dads_color"):GetString()
 
 	if selected == "" then
 		return false
 	end
+
+	if SERVER then return true; end
 
 	if not timer.Exists("left_antispam") then
 		timer.Create("timer_antispam", 0.01, 1, function()
@@ -46,10 +46,15 @@ function TOOL:LeftClick(tr)
 end
 
 function TOOL:RightClick(tr)
-	print(tr.Entity)
+	if tr.Entity:GetClass() == "d_tete" then
+		if SERVER then
+			tr.Entity:Remove()
+		end
 
-	tr.Entity:Remove()
-	return true
+		return true
+	else
+		return false
+	end
 end
 
 function TOOL:Reload(tr)
