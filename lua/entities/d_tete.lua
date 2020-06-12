@@ -75,8 +75,7 @@ if SERVER then
 	net.Receive("dads_set_teleport", function(len, ply)
 		local selected = net.ReadString()
 		local position = net.ReadVector()
-print(selected)
-print(position)
+
 		dt = ents.Create("d_tete")
 
 		dt:SetPos(position)
