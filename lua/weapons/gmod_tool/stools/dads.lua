@@ -31,15 +31,8 @@ function TOOL:LeftClick(tr)
 		return false
 	end
 
-<<<<<<< HEAD
-	rc = ents.Create("d_tete")
-	rc:SetPos(tr.HitPos)
-	rc:Spawn()
-	rc:SetMaterial("models/wireframe")
-=======
 	if SERVER then
 		dt = ents.Create("d_tete")
-
 		dt:SetPos(tr.HitPos)
 
 		-- Color
@@ -64,7 +57,6 @@ function TOOL:LeftClick(tr)
 
 		dt:Spawn()
 	end
->>>>>>> 0756f1527034475e88073c21aa2709985bafc1a7
 
 	return true
 end
