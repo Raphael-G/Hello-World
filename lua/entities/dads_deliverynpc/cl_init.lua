@@ -1,8 +1,10 @@
 include("shared.lua")
 AddCSLuaFile("configs.lua")
-
+ENT.RenderGroup = RENDERGROUP_BOTH
 function ENT:Initialize()
+
 end
+
 
 --You don't need to touch anthing here, just go to autorun paste ;)
 local menucooldown = 0
@@ -135,19 +137,42 @@ net.Receive("dads.openderma", function()
 		end
 end)
 
+surface.CreateFont( "Dads_npc_font", {
+	font = "Roboto Lt",
+	extended = false,
+	size = 80,
+	weight = 700,
+	blursize = 0,
+	scanlines = 0,
+	antialias = true,
+	underline = false,
+	italic = false,
+	strikeout = false,
+	symbol = false,
+	rotary = false,
+	shadow = false,
+	additive = false,
+	outline = false,
+} )
+
 function ENT:Draw()
-	local Pos = self:GetPos()
-	local Ang = self:GetAngles()
-		Ang:RotateAroundAxis(Ang:Forward(), 90)
-		Ang:RotateAroundAxis(Ang:Right(), 270)
-	local TextAbove = Dads.cfg.menus["Delivery Man"]
-	local TextWidth = surface.GetTextSize(TextAbove)
-
-	surface.SetFont("DermaLarge")
-
-	cam.Start3D2D(Pos - Ang:Right() * 45 + Ang:Up(), Ang, 0.16)
-		draw.WordBox(0, -TextWidth*0.5 - 5, -201, TextAbove, "DermaLarge", Color(0, 0, 0, 1), Color(255,255,0,255))
-	cam.End3D2D()
-
 	self:DrawModel()
+
+	if LocalPlayer():GetPos():Distance(self:GetPos()) < 550 then
+		local rotate = Angle(0,0,0)
+		rotate:RotateAroundAxis(Vector(1,0,0),90)
+		rotate.y = LocalPlayer():GetAngles().y - 90
+
+		cam.Start3D2D(self:GetPos() + Vector(0,0,80), rotate , 0.074)
+			draw.SimpleText(Dads.cfg.menus["Dom Express Central"],"Dads_npc_font",0,30,Color(230, 244, 255,255) , 1 , 1)
+
+		cam.End3D2D()
+	end
 end
+
+
+function ENT:DrawTranslucent()
+	self:Draw()
+end
+
+

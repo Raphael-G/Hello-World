@@ -50,12 +50,14 @@ jobdescs = {
 }
 
 Dads.cfg.menus = {
+    ["Dom Express Central"] = "Dom Expres Central",
     ["$"] = "$",
     ["Delivery Man"] = "Delivery Man",
     ["PayCheck"] = "PayCheck",
     ["Job Description"] = "Job Description",
     ["Time to complete the job"] = "Time to Complete the Job"
 }
+
 
 Dads.cfg.compylogos = #compylogos
 Dads.cfg.locationnames = #LocationNames
