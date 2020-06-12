@@ -25,13 +25,13 @@ function TOOL:DrawHUD(tr)
 end
 
 function TOOL:LeftClick(tr)
+	if SERVER then return true; end
+
 	local selected = GetConVar("dads_color"):GetString()
 
 	if selected == "" then
 		return false
 	end
-
-	if SERVER then return true; end
 
 	if not timer.Exists("left_antispam") then
 		timer.Create("timer_antispam", 0.01, 1, function()
