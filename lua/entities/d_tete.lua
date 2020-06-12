@@ -61,12 +61,6 @@ end
 function ENT:Think()
 end
 
-if CLIENT then
-	function ENT:Draw()
-		self:DrawModel()
-	end
-end
-
 if SERVER then
 	function ENT:Use( act, ply )
 		print(s)
