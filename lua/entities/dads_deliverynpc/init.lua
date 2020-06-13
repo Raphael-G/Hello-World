@@ -4,6 +4,7 @@ include("shared.lua")
 
 util.AddNetworkString("dads.openderma")
 util.AddNetworkString("dads.values")
+util.AddNetworkString("dadas_menuclose")
 
 function ENT:Initialize()
 	self:SetModel("models/gman_high.mdl")
@@ -19,14 +20,17 @@ function ENT:Use( ent, ply )
 
 	net.Start("dads.openderma")
 	net.Send(ply)
+	self:EmitSound("vo/canals/gunboat_herelook.wav")
 
 end
-
 function ENT:OnRemove()
 	
 end
 
 function ENT:Think(ent)
+net.Receive("dadas_menuclose",function(ent, ply)
+	self:EmitSound("vo/eli_lab/airlock_cit01.wav")
+end)
 
 end
 

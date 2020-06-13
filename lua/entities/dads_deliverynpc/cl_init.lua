@@ -30,7 +30,7 @@ surface.CreateFont( "DadsFont", {
 	outline = false,
 })
 net.Receive("dads.openderma", function()
-    -- The menu and the deatils ;)	
+    -- The menu and the deatils ;)
 
 	print(jjcount)
 
@@ -135,6 +135,8 @@ net.Receive("dads.openderma", function()
 			jcount = 0
 			Menu:Close()
 			DDmenu:Close()
+			net.Start("dadas_menuclose")
+			net.SendToServer()
 		end
 end)
 
