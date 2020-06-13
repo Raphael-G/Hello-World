@@ -119,6 +119,8 @@ net.Receive("dads.openderma", function()
 						net.WriteString(totalpackges)
 						net.WriteString(payperbox*totalpackges)
 					net.SendToServer()
+					net.Start("dads_getjob")
+					net.SendToServer()
 				end
 			end
 	end
