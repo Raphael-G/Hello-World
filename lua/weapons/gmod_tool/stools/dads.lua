@@ -25,21 +25,22 @@ function TOOL:DrawHUD(tr)
 end
 
 function TOOL:LeftClick(tr)
-	if SERVER then return true; end
+	local ply = self:GetOwner()
+	local neighborhood = SERVER and ply:GetInfo("dads_color") or CLIENT and GetConVar("dads_color"):GetString()
 
-	local selected = GetConVar("dads_color"):GetString()
-
-	if selected == "" then
+	if not neighborhood or neighborhood == "" then
 		return false
 	end
 
-	if not timer.Exists("left_antispam") then
-		timer.Create("timer_antispam", 0.01, 1, function()
-			net.Start("dads_set_teleport")
-				net.WriteString(selected)
-				net.WriteVector(tr.HitPos)
-			net.SendToServer()
-		end)
+	if SERVER then 		
+		local position = tr.HitPos
+
+		dt = ents.Create("d_tete")
+
+		dt:SetPos(position)
+		dt:SetArea(neighborhood)
+		dt:SetPlatColor()
+		dt:Spawn()
 	end
 
 	return true
