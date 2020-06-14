@@ -75,9 +75,6 @@ if SERVER then
 			dt:SetColor(teleportColors[1])
 		end
 	end
-
-	function ENT:OnRemove()
-	end
 end
 
 function ENT:OnRemove()
