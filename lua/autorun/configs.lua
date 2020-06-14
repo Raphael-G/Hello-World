@@ -57,6 +57,7 @@ jobdescs = {
 }
 
 Dads.cfg.menus = {
+    ["Delivery Point"] = "Delivery Point",
     ["Dom Express Central"] = "Dom Expres Central",
     ["$"] = "$",
     ["Delivery Man"] = "Delivery Man",

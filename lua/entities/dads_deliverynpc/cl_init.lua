@@ -13,7 +13,7 @@ local jcount = 0
 local jjcount = 1
 
 surface.CreateFont( "DadsFont", {
-	font = "Rastafari",
+	font = "Tahoma",
 	extended = true,
 	size = 12,
 	weight = 560,
@@ -29,6 +29,7 @@ surface.CreateFont( "DadsFont", {
 	additive = false,
 	outline = false,
 })
+
 net.Receive("dads.openderma", function()
     -- The menu and the deatils ;)
 
@@ -170,7 +171,6 @@ function ENT:Draw()
 
 		cam.Start3D2D(self:GetPos() + Vector(0,0,80), rotate , 0.074)
 			draw.SimpleText(Dads.cfg.menus["Dom Express Central"],"Dads_npc_font",0,30,Color(230, 244, 255,255) , 1 , 1)
-
 		cam.End3D2D()
 	end
 end
