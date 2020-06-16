@@ -13,7 +13,7 @@ if SERVER then
 		neighborhood = net.ReadString()
 		packagesQuantity = net.ReadString()
 		paychek = net.ReadString()
-
+		print(neighborhood)
 		for k,v in pairs(ents.GetAll()) do
 			if v:GetClass() == "d_tete" then
 				if v.neighborhood == neighborhood then
@@ -21,6 +21,7 @@ if SERVER then
 				end
 			end
 		end
+		local neighborhoodtwo = ""
 	end)
 
 	function ENT:Initialize()
@@ -35,6 +36,8 @@ if SERVER then
 			phys:Wake()
 			phys:EnableMotion( false )
 		end
+
+		local pos = self:GetPos()
 	end
 
 	function ENT:SetArea(neighborhood)
@@ -46,11 +49,19 @@ if SERVER then
 		self.paychek = paychek
 	end
 
-	function ENT:Use(act, ply)
+-- Now we need to get and comparete the informations from the npc and the plate
+	function ENT:Use(act, ply) -- Getting plate infos
 		print("Informações atuais:")
 		print(self.neighborhood)
 		print(self.packagesQuantity)
 		print(self.paychek)
+		neighborhoodtwo = self.neighborhood
+		print(pos.."a")
+	end
+	if neighborhoodtwo == neighborhood then
+		local point = ents.Create("dads_ballpoint")
+		point:SetPos(Vector(0,0,20))
+		point:Spawn()
 	end
 
 	function ENT:SetPlatColor()
